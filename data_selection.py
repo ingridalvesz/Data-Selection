@@ -29,4 +29,20 @@ emissoes_gases = emissoes_gases.drop(columns= 'Emissão / Remoção / Bunker')
 emissoes_gases
 # apagando a coluna com .drop()
 
+emissoes_gases.loc[:, 'Nível 1 - Setor':'Produto'].columns
+# localizando as colunas desejadas
+
+colunas_info = list(emissoes_gases.loc[:, 'Nível 1 - Setor':'Produto'].columns)
+colunas_info
+# salvando em uma list() as colunas desejadas
+
+emissoes_gases.loc[:, 1970:2021].columns
+
+colunans_emissao = list(emissoes_gases.loc[:, 1970:2021].columns)
+colunans_emissao
+
+emissoes_gases.melt(id_vars = colunas_info, value_vars = colunans_emissao, var_name = 'Ano', value_name = 'Emissao')
+
+emissoes_por_ano = emissoes_gases.melt(id_vars = colunas_info, value_vars = colunans_emissao, var_name = 'Ano', value_name = 'Emissao')
+
 # %%
