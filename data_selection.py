@@ -45,4 +45,12 @@ emissoes_gases.melt(id_vars = colunas_info, value_vars = colunans_emissao, var_n
 
 emissoes_por_ano = emissoes_gases.melt(id_vars = colunas_info, value_vars = colunans_emissao, var_name = 'Ano', value_name = 'Emissao')
 
+emissoes_por_ano.groupby('Gás')
+#para somar a coluna "Emissão" com base nos tipos de gás da coluna "Gás" usamos o grupby()
+
+emissoes_por_ano.groupby('Gás').groups
+
+emissoes_por_ano.groupby('Gás').get_group('CO2 (t)')
+
+emissoes_por_ano.groupby('Gás').sum(numeric_only = True)
 # %%
